@@ -19,14 +19,17 @@
 
                     You are logged in!
                     <a href="/about">Link</a>
-                    <a href="/sub">Subscribe to a Magazine</a>
+                    <a href="/sub">Subscribe to a Magazine Newsletter</a>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body mb-10">
                     <form action="{{route('todo.store')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <input type="text" name="todo" class="form-control" placeholer="Your Activity" required>
+                            <input type="text" name="todo" class="form-control mb-10 @error('todo') is-invalid @enderror" placeholer="Your Activity" required>
+                            @error('todo')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <input type="submit" value="Add Activity">
                     </form>
@@ -36,7 +39,7 @@
         </div>
 
         <div class="col-md-8">
-            <div class="card mt-4">
+            <div class="card deafault mt-4">
                 <div class="card header">Your Activities</div>
                 <div class="card-body">
                     @foreach($todos as $todo)

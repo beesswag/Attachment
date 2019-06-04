@@ -21,16 +21,23 @@ class pageController extends Controller
 
     public function register(Request $request)
     {
-        $names = new Names;
-        $names->fname = $request->fname;
-        $names->lname = $request->lname;
-        $names->email = $request->email;
-        $names->prog = $request->prog;
+        $request->validate([
+            'fname' => 'required|min:5',
+            'lname' => 'required|min:5',
+            'prog' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+        ]);
+        $named = Auth::user()->id;
+        $named = new Names;
+        $named->fname = $request->fname;
+        $named->lname = $request->lname;
+        $named->email = $request->email;
+        $named->prog = $request->prog;
         // $names->fname = Input::get("fname");
         // $names->lname = Input::get("lname");
         // $names->prog = Input::get("prog");
         // $names->email = Input::get("emai");
-        $names->save();
+        $named->save();
         //Session::flash('success', 'Your activity has been added');
         return redirect()->back()->with('success', "Subscribed");
         //return view('pages.sub')->with('success', "subscried");

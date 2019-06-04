@@ -9,7 +9,9 @@ class todoController extends Controller
 {
     public function store(Request $request){
         //dd($request->all());
-        
+        $request->validate([
+            'todo' => 'required|min:5',
+        ]);
         $todo = new Todo;
         $todo->user_id = Auth::user()->id;
         $todo->todo = $request->todo;
@@ -24,6 +26,9 @@ class todoController extends Controller
     }
 
     public function update(Request $request, $id){
+        $request -> validate([
+            'todo' => 'required|min:5',
+        ]);
         $todo = Todo::find($id);
         $todo->todo = $request->todo;
         $todo->save();
@@ -33,6 +38,6 @@ class todoController extends Controller
     public function delete($id){
         $todo = Todo::find($id);
         $todo->delete();
-        return redirect()->route('home')->with('success', 'Deleted');
+        return redirect()->back()->with('success', 'Deleted');
     }
 }
