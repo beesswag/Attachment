@@ -19,7 +19,7 @@
 
                     You are logged in!
                     <a href="/about">Link</a>
-                    <a href="/sub">Sub to a Page</a>
+                    <a href="/sub">Subscribe to a Magazine</a>
                 </div>
 
                 <div class="card-body">
