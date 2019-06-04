@@ -18,7 +18,7 @@
                     @endif
 
                     You are logged in!
-                    <a href="/about">Link</a>
+                    <a href="{{route('sub.view_all')}}"><button>View All</button></a>
                     <a href="/sub">Subscribe to a Magazine Newsletter</a>
                 </div>
 

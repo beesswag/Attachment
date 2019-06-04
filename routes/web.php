@@ -27,3 +27,5 @@ Route::post('todo/store', 'todoController@store')->name('todo.store');
 Route::get('todo/{id}/edit', 'todoController@edit')->name('todo.edit');
 Route::put('todo/{id}/update', 'todoController@update')->name('todo.update');
 Route::delete('todo/{id}', 'todoController@delete')->name('todo.delete');
+Route::get('sub/viewall', 'pageController@viewall')->name('sub.view_all');
+Route::get('sub/viewall/{id}', 'pageController@show')->name('viewindividual');

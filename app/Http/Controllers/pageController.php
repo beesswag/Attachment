@@ -38,8 +38,17 @@ class pageController extends Controller
         // $names->prog = Input::get("prog");
         // $names->email = Input::get("emai");
         $named->save();
-        //Session::flash('success', 'Your activity has been added');
         return redirect()->back()->with('success', "Subscribed");
         //return view('pages.sub')->with('success', "subscried");
+        }
+
+        public function viewall(){
+            $members = Names::orderBy('email', 'asc')->get();
+            return view('pages.viewall')->with('members', $members);
+            // return Names::all();
+    }
+
+    public function show($id){
+        return Names::find($id);
     }
 }

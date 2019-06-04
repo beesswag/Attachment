@@ -55,8 +55,14 @@ nav a{
   box-shadow: none;
   border-color: transparent;
 }
+.hero button:focus{
+  outline: none
+}
 #login{
   background-color: #42ff62;
+}
+#login:focus{
+  outline: none
 }
 #register{
   background-color: rgb(56, 158, 253);
