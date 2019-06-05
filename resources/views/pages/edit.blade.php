@@ -12,7 +12,7 @@
                     <form action="{{route('todo.update', $todo->id)}}" method="post">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
-                        <div class="form-group">
+                        <div class="form-group"> 
                             <input type="text" value="{{ $todo->todo }}" name="todo" class="form-control @error('todo') is-invalid @enderror" placeholer="Your Activity" required>
                         </div>
                         @error('todo')

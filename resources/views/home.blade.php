@@ -18,12 +18,12 @@
                     @endif
 
                     You are logged in!
-                    <a href="{{route('sub.view_all')}}"><button>View All</button></a>
+                    <a href="{{route('sub.view_all')}}"><button>View All Members</button></a>
                     <a href="/sub">Subscribe to a Magazine Newsletter</a>
                 </div>
 
                 <div class="card-body mb-10">
-                    <form action="{{route('todo.store')}}" method="post">
+                    <form action="{{route('todostore')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group">
                             <input type="text" name="todo" class="form-control mb-10 @error('todo') is-invalid @enderror" placeholer="Your Activity" required>

@@ -23,7 +23,7 @@ Route::post('sub/register', 'pageController@register')->name('sub.register');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('todo/store', 'todoController@store')->name('todo.store');
+Route::post('todo/store', 'todoController@store')->name('todostore');
 Route::get('todo/{id}/edit', 'todoController@edit')->name('todo.edit');
 Route::put('todo/{id}/update', 'todoController@update')->name('todo.update');
 Route::delete('todo/{id}', 'todoController@delete')->name('todo.delete');
